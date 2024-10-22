@@ -1,0 +1,23 @@
+---
+import IconItem from "./IconItem.astro";
+
+const { cards } = Astro.props;
+---
+
+<section class="flex flex-wrap gap-6 mb-1 mx-4">
+  {
+    cards.map((card: CardInfo) => {
+      const { icon, name, description } = card;
+
+      return (
+        <article class="bg-[#222224] bg-opacity-35 p-4 rounded-lg flex items-center gap-4 shadow-[-1px_-1px_2px_#c4c4c430] hover:shadow-[0_0_6px_#c4c4c4] hover:scale-105 flex-auto w-72 transition">
+          <IconItem icon={icon} />
+          <section>
+            <h1 class="text-lg font-semibold mb-2">{name}</h1>
+            <p class="text-sm">{description}</p>
+          </section>
+        </article>
+      );
+    })
+  }
+</section>

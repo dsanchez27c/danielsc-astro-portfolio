@@ -1,0 +1,53 @@
+---
+import UserInfo from "./UserInfo.astro";
+import ItemInfo from "./ItemInfo.astro";
+
+const items = [
+  {
+    icon: {
+      name: "email",
+      size: 24,
+      color: "#ffffff",
+    },
+    name: "Email",
+    value: "danielalejandrosc96@gmail.com",
+  },
+  {
+    icon: {
+      name: "phone",
+      size: 24,
+      color: "#ffffff",
+    },
+    name: "Phone",
+    value: "+57(320) 456 2946",
+  },
+  {
+    icon: {
+      name: "birthday",
+      size: 24,
+      color: "#ffffff",
+    },
+    name: "Birthday",
+    value: "June 08, 1996",
+  },
+  {
+    icon: {
+      name: "location",
+      size: 24,
+      color: "#ffffff",
+    },
+    name: "Location",
+    value: "Bogotá, Colombia",
+  },
+];
+---
+
+<section class="bg-[#1e1e1e] px-8 py-10 rounded-2xl overflow-y-auto">
+  <UserInfo
+    username="Daniel Sánchez"
+    userimage="https://avatars.githubusercontent.com/u/84199574?v=4"
+    usercharge="Frontend Developer"
+  />
+  <hr class="my-8 opacity-40" />
+  <ItemInfo items={items} />
+</section>

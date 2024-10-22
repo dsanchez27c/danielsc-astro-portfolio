@@ -1,0 +1,25 @@
+---
+import IconItem from "./IconItem.astro";
+
+const { items } = Astro.props;
+---
+
+<ul class="list-none max-h-[40%] p-0">
+  {
+    items.map((item: ItemInterface) => {
+      const { icon, name, value } = item;
+      return (
+        <li class="flex items-center gap-5 p-2 mb-5">
+          <IconItem
+            icon={icon}
+            classIcon="rounded-md shadow-[-2px_-2px_3px_#ffffff50] text-xl p-2 flex justify-center items-center"
+          />
+          <article class="flex-1">
+            <h3>{name}</h3>
+            <p class="w-24 truncate">{value}</p>
+          </article>
+        </li>
+      );
+    })
+  }
+</ul>

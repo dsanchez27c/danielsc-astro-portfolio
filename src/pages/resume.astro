@@ -1,0 +1,82 @@
+---
+import Title from "../components/Title.astro";
+import Layout from "../layouts/Layout.astro";
+import ResumeEducation from "../components/sections/ResumeEducation.astro";
+import ResumeSkills from "../components/sections/ResumeSkills.astro";
+
+const icon = {
+  name: "book",
+  size: 28,
+  color: "#e4a622",
+};
+
+const educations = [
+  {
+    name: "Education Title",
+    date: "11-10-2024",
+    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto a
+      sapiente quasi, fugiat expedita quaerat non fuga aliquid voluptatem
+      facilis provident id eligendi quo blanditiis aperiam dolores ipsam ab
+      perferendis.`,
+  },
+  {
+    name: "Education Title",
+    date: "11-10-2024",
+    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto a
+      sapiente quasi, fugiat expedita quaerat non fuga aliquid voluptatem
+      facilis provident id eligendi quo blanditiis aperiam dolores ipsam ab
+      perferendis.`,
+  },
+  {
+    name: "Education Title",
+    date: "11-10-2024",
+    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto a
+      sapiente quasi, fugiat expedita quaerat non fuga aliquid voluptatem
+      facilis provident id eligendi quo blanditiis aperiam dolores ipsam ab
+      perferendis.`,
+  },
+  {
+    name: "Education Title",
+    date: "11-10-2024",
+    description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto a
+      sapiente quasi, fugiat expedita quaerat non fuga aliquid voluptatem
+      facilis provident id eligendi quo blanditiis aperiam dolores ipsam ab
+      perferendis.`,
+  },
+];
+
+const skills = [
+  {
+    name: "Web Developer",
+    percentage: (10 / 12) * 100,
+    classWidth: "w-10/12",
+  },
+  {
+    name: "Web Design",
+    percentage: (7 / 12) * 100,
+    classWidth: "w-7/12",
+  },
+  {
+    name: "UX / UI",
+    percentage: (9 / 12) * 100,
+    classWidth: "w-8/12",
+  },
+];
+---
+
+<Layout title="Resume Portfolio">
+  <Title title="Resume" />
+  <section class="overflow-y-auto h-[80%]">
+    <ResumeEducation
+      icon={icon}
+      educations={educations}
+      sectionTitle="Education"
+    />
+    <ResumeEducation
+      icon={icon}
+      educations={educations}
+      sectionTitle="Experience"
+    />
+    <ResumeSkills sectionTitle="My Skills" skills={skills} />
+  </section>
+</Layout>

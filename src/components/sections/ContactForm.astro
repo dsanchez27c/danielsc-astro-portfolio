@@ -1,0 +1,61 @@
+---
+import IconItem from "../IconItem.astro";
+
+const { icon } = Astro.props;
+---
+
+<section>
+  <h1 class="text-3xl font-semibold mb-4 leading-none">Contact Form</h1>
+  <form id="formData" class="flex flex-col gap-4">
+    <section class="flex items-center justify-center gap-6">
+      <input
+        name="full-name"
+        class="w-full p-4 rounded-lg shadow-[0_0_10px_#c4c4c430] font-semibold bg-[#1212129a]"
+        type="text"
+        placeholder="Full Name..."
+        autocomplete="additional-name"
+        autofocus
+      />
+      <input
+        name="email-address"
+        class="w-full p-4 rounded-lg shadow-[0_0_10px_#c4c4c430] font-semibold bg-[#1212129a]"
+        type="email"
+        placeholder="Email Address"
+        autocomplete="additional-name"
+      />
+    </section>
+    <textarea
+      name="message"
+      class="w-full h-48 p-4 rounded-lg resize-none shadow-[0_0_10px_#c4c4c430] font-semibold bg-[#1212129a]"
+      placeholder="Write your message here..."></textarea>
+    <button
+      class="flex justify-center items-center gap-3 bg-slate-600 font-semibold px-4 py-2 rounded-md shadow-[0_0_10px_#c4c4c460] active:bg-slate-700 hover:bg-slate-500 transition duration-75 ease-in-out"
+      type="submit">Submit <IconItem icon={icon} /></button
+    >
+  </form>
+</section>
+
+<script>
+  const $formData = document.getElementById("formData");
+
+  $formData.addEventListener("submit", () => {
+    event.preventDefault();
+
+    const fullName = $formData["full-name"].value;
+    const emailAddress = $formData["email-address"].value;
+    const message = $formData["message"].value;
+
+    const data = {
+      user: fullName,
+      email: emailAddress,
+      message: message,
+    };
+
+    if (fullName && emailAddress && message) {
+      console.log("Send!");
+      console.log(data);
+    } else {
+      console.log("Fill fields!");
+    }
+  });
+</script>

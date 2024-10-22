@@ -1,0 +1,30 @@
+---
+const tab_menu: string[] = ["About", "Resume", "Portfolio", "Blog", "Contact"];
+const { path } = Astro.props;
+---
+
+<nav
+  class="absolute top-0 right-0 flex gap-4 px-4 py-3 rounded-tr-2xl rounded-bl-2xl bg-[#262626]"
+>
+  {
+    tab_menu.map((el: string) => {
+      return (
+        <button
+          class="bg-transparent hover:bg-[#373737] rounded-md leading-none relative flex justify-center"
+          role="button"
+          aria-label={el}
+        >
+          <a
+            href={el.toLowerCase()}
+            class="font-semibold px-5 py-3 rounded-md block no-underline"
+          >
+            {el}
+          </a>
+          <span
+            class={`${path === el.toLowerCase() ? "block border-b-[3px] border-b-yellow-600 rounded-full shadow-[0_0_4px_#eab308a4] w-full" : "border-b-[0px] w-0"} absolute bottom-0 left-0`}
+          />
+        </button>
+      );
+    })
+  }
+</nav>

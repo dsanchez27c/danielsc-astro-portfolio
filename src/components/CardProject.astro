@@ -1,0 +1,31 @@
+---
+import IconItem from "./IconItem.astro";
+
+const icon = {
+  name: "camera",
+  size: 44,
+  color: "#fff",
+};
+---
+
+const
+
+<section class="flex gap-6">
+  <article
+    class="p-2 bg-gray-700 bg-opacity-45 rounded-md cursor-pointer relative group"
+  >
+    <img class="rounded-md" src="https://picsum.photos/330/230" alt="picsum" />
+    <section
+      class="absolute flex justify-center items-center h-full w-full top-0 left-0 opacity-0 group-hover:bg-[#00000073] group-hover:opacity-100 transition"
+    >
+      <span class="bg-gray-700 bg-opacity-60 leading-none p-2 rounded-md"
+        ><IconItem icon={icon} /></span
+      >
+    </section>
+    <h1 class="text-sm font-bold leading-none mt-2">Name Title</h1>
+    <p class="text-xs mt-1">Little description.</p>
+  </article>
+  <article class="p-2 bg-gray-700 bg-opacity-45 rounded-md">
+    <img class="rounded-md" src="https://picsum.photos/370/270" alt="picsum" />
+  </article>
+</section>

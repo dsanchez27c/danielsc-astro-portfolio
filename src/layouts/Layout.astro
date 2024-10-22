@@ -1,9 +1,16 @@
 ---
+import Navigation from "../components/Navigation.astro";
+import PersonalCard from "../components/PersonalCard.astro";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+
 interface Props {
 	title: string;
 }
 
+const { pathname = "/" } = new URL(Astro.request.url);
 const { title } = Astro.props;
+
+let val_path = pathname.replace("/", "");
 ---
 
 <!doctype html>
@@ -15,36 +22,57 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
-		<slot />
-	</body>
+		<main
+			class="bg-[#111111] h-[100dvh] flex items-center justify-center box-border"
+		>
+			<section class="w-4/5 flex gap-x-6 max-h-[80%] justify-center">
+				<PersonalCard />
+				<section
+					class="w-[80%] bg-[#1e1e1e] rounded-2xl p-6 relative overflow-hidden"
+				>
+					<Navigation path={val_path} />
+					<slot title="Ab" />
+				</section>
+			</section>
+		</main>
+	</body><style is:global>
+		:root {
+			--accent: 136, 58, 234;
+			--accent-light: 224, 204, 250;
+			--accent-dark: 49, 10, 101;
+			--accent-gradient: linear-gradient(
+				45deg,
+				rgb(var(--accent)),
+				rgb(var(--accent-light)) 30%,
+				white 60%
+			);
+		}
+		@font-face {
+			font-family: "Raleway";
+			src: url("/fonts/Raleway/Raleway-VariableFont_wght.ttf");
+		}
+		html {
+			font-family: Raleway, system-ui, sans-serif;
+			background: #13151a;
+			color-scheme: dark light;
+		}
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+
+		*::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

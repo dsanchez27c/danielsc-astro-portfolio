@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+import ContactForm from "../components/sections/ContactForm.astro";
+
+const icon = {
+  name: "send",
+  size: 20,
+  color: "white",
+};
+---
+
+<Layout title="Contact Portfolio">
+  <Title title="Contact" />
+  <ContactForm icon={icon} />
+</Layout>

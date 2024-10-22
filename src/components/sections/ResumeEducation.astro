@@ -1,0 +1,14 @@
+---
+import Education from "../Education.astro";
+import IconItem from "../IconItem.astro";
+
+const { icon, educations, sectionTitle } = Astro.props;
+---
+
+<article class="flex items-center gap-4 mb-6">
+  <IconItem icon={icon} />
+  <h1 class="text-3xl font-semibold leading-none">{sectionTitle}</h1>
+</article>
+<section class="flex flex-col gap-4 mb-10">
+  <Education educations={educations} />
+</section>
